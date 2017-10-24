@@ -1,0 +1,39 @@
+<div class="wrapper">
+    <div class="top">
+        <a class="nav" href="/sessions" data-method="delete">Logout</a>
+        <a class="nav" href="/dashboard/<%=session[:user_id]%>">Go to Dashboard</a>
+    </div>
+    <div class="msgarea">
+        <% if flash[:errors] %>
+            <div class="error">
+            <% flash[:errors].each do |msg| %>
+                <p> <%= msg %> </p>
+            <% end %>
+            </div>
+        <% end %>
+    </div>
+    <h2>Hi <%= @user.first_name %></h2>
+    <h1 class="centertext">All Products</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Seller</th>
+                <th>Date Posted</th>
+                <th>Amount</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%@shoes.each do |shoe|%>
+            <tr>
+                <td><p><%=shoe.name%></p></td>
+                <td><p><%=shoe.seller.first_name%> <%=shoe.seller.last_name%></p></td>
+                <td><p><%=shoe.created_at.to_date%></p></td>
+                <td><p><%=number_to_currency(shoe.price)%></p></td>
+                <td><p><a href="/shoes/<%=shoe.id%>">Buy</a></p></td>
+            </tr>
+            <%end%>
+        </tbody>
+    </table>
+</div>

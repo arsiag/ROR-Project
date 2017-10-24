@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  price: 1.5
+  sold: 
+  'null': MyString
+  false,: MyString
+  default: MyString
+  'false': MyString
+
+two:
+  name: MyString
+  price: 1.5
+  sold: 
+  'null': MyString
+  false,: MyString
+  default: MyString
+  'false': MyString
